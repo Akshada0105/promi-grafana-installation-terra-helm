@@ -1,0 +1,26 @@
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi  # Adjust storage size as needed
+
+    resources:
+      requests:
+        memory: 1Gi
+        cpu: 500m
+      limits:
+        memory: 2Gi
+        cpu: 1000m
+
+alertmanager:
+  enabled: true
+
+grafana:
+  adminPassword: "admin123"  # Change as needed
+  persistence:
+    enabled: true
+    size: 5Gi
